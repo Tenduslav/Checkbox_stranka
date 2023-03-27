@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TO DO LIST</title>
+</head>
+<body id="bodyElement">
+<h1>MY TO DO LIST</h1>
+
+<!-- Tlačítka -->
+<button id ="button1">Checkboxes</button>
+<button id ="button2">Checked Checkboxes</button>
+<button id ="button3">Only To Do</button>
+<button id ="button4">How much To Dos</button>
+
+
+<script>
+let myToDos = [{
+    text: "Vynest kos",
+    done: false
+},{
+    text: "Nakoupit",
+    done: false
+},{
+    text: "Uklidit",
+    done: true
+},{
+    text: "Nakrmit psa",
+    done: true
+},{
+    text: "Umyt nadobi",
+    done: false
+}]
+
+// při načtení stránky kód vypíše objekty//
+bodyElement.onload = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let task = document.createElement("p")
+     task.textContent = myToDos[i].text
+     document.body.appendChild(task);
+    }
+}
+
+//tlačítko Checkboxes
+button1.onclick = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let taskCheckbox = document.createElement("input")
+     taskCheckbox.type = "checkbox"
+     document.body.appendChild(taskCheckbox);
+     
+     let taskLabel = document.createElement("label")
+     taskLabel.textContent = myToDos[i].text
+     document.body.appendChild(taskLabel);
+  }   
+//Odděluje vypsaný text od sebe//
+let breakline = document.createElement("br")
+  document.body.appendChild(breakline)
+}
+
+//tlačítko Checked Checkboxes//
+button2.onclick = function() {
+   for(let i = 0; i < myToDos.length; i++){
+     let taskChecked = document.createElement("input")
+     taskChecked.type = "checkbox"
+     taskChecked.checked = myToDos[i].done
+     document.body.appendChild(taskChecked);
+   
+     let taskLabel2 = document.createElement("label")
+     taskLabel2.textContent = myToDos[i].text
+     document.body.appendChild(taskLabel2);
+    }
+//Odděluje vypsaný text od sebe//
+let breakline = document.createElement("br")
+  document.body.appendChild(breakline)
+}
+
+//Tlačítko Only To Do
+button3.onclick = function() {
+   for(let i = 0; i < myToDos.length; i++){
+      if(myToDos.done[i]==false)
+     {	let taskHowmuch = document.createElement("input")
+     	taskHowmuch.type = "checkbox"
+     	document.body.appendChild(taskHowmuch);
+        
+        let taskLabel3 = document.createElement("label")
+     	taskLabel3.textContent = myToDos[i].text
+     	document.body.appendChild(taskLabel3);
+    
+    }
+//Odděluje vypsaný text od sebe//
+let breakline = document.createElement("br")
+  document.body.appendChild(breakline)
+}
+//Tlačítko How much To Dos
+button4.onclick = function() {
+   let i
+   if (myToDos[i].done == false)
+   {i += i};
+   
+   }
+}
+</script>
+
+</body>
+</html> 
